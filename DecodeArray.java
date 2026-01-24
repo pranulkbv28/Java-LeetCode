@@ -1,0 +1,23 @@
+public class DecodeArray {
+    public static int[] decode(int[] encoded, int first) {
+        int ans[] = new int[encoded.length + 1];
+        ans[0] = first;
+
+        for (int i = 1; i < ans.length; i++) {
+            ans[i] = ans[i - 1] ^ encoded[i - 1];
+        }
+
+        return ans;
+    }
+
+    public static void main(String[] args) {
+        int encoded[] = { 6, 2, 7, 3 };
+        int first = 4;
+
+        int ans[] = decode(encoded, first);
+
+        for (int num : ans) {
+            System.out.println(num);
+        }
+    }
+}
